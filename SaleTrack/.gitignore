@@ -1,0 +1,54 @@
+﻿# Visual Studio / .NET
+.vs/
+.vscode/
+.idea/
+_ReSharper*/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+publish/
+out/
+
+# NuGet / packages
+packages/
+*.nupkg
+.nuget/
+
+# Local database and DB journals
+saleTrack.db
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Local config / secrets
+.env
+secrets.json
+appsettings.Development.json
+local.settings.json
+*.pfx
+*.key
+*.pem
+
+# Test / coverage / logs
+TestResults/
+*.coverage
+coverage/
+*.log
+*.tmp
+Temp/
+
+# OS files, archives, backups
+.DS_Store
+Thumbs.db
+*.zip
+*.tar.gz
+*.bak
+*.orig

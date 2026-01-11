@@ -1,0 +1,49 @@
+﻿<Window x:Class="SaleTrack.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaleTrack"
+        mc:Ignorable="d"
+        Title="SaleTrack" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+            <TextBlock VerticalAlignment="Center" Margin="0,0,10,0">Scan/Enter Barcode:</TextBlock>
+            <TextBox x:Name="BarcodeTextBox" Width="250" KeyDown="BarcodeTextBox_KeyDown"/>
+            <Button x:Name="LookupButton" Content="Lookup" Margin="10,0,0,0" Click="LookupButton_Click"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+            <StackPanel>
+                <TextBlock>Product Name</TextBlock>
+                <TextBox x:Name="NameTextBox" Width="250"/>
+            </StackPanel>
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock>Unit Price</TextBlock>
+                <TextBox x:Name="UnitPriceTextBox" Width="100"/>
+            </StackPanel>
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock>Quantity</TextBlock>
+                <TextBox x:Name="QuantityTextBox" Width="60" KeyDown="QuantityTextBox_KeyDown"/>
+                <CheckBox x:Name="AllowDecimalCheck" Content="Allow decimal quantity" Margin="4,4,0,0"/>
+            </StackPanel>
+            <Button x:Name="AddSaleButton" Content="Add Sale" Margin="10,20,0,0" Click="AddSaleButton_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="SalesGrid" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Unit" Binding="{Binding UnitPrice}" Width="80"/>
+                <DataGridTextColumn Header="Qty" Binding="{Binding Quantity}" Width="60"/>
+                <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="80"/>
+                <DataGridTextColumn Header="Sold At" Binding="{Binding SoldAt}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
